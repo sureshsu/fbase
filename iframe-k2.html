@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <script src="https://www.googletagmanager.com/gtag/js?id=G-ZXKPNLFRRE"></script> -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FZTEHPVWR"></script>
+
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
+
+   function init_fb_analytics() {
+
+        // Your web app's Firebase configuration
+        
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        
+        const firebaseConfig = {
+        
+          apiKey: "AIzaSyDuzQOEc-zRBZr7CbVoUJ-tXeHeqhNat8I",
+        
+          authDomain: "fir-sample-d7437.firebaseapp.com",
+        
+          projectId: "fir-sample-d7437",
+        
+          storageBucket: "fir-sample-d7437.appspot.com",
+        
+          messagingSenderId: "491000235416",
+        
+          appId: "1:491000235416:web:da7eba339f3de7209117ed",
+        
+          measurementId: "G-0FZTEHPVWR"
+        
+        };
+            
+        // Initialize Firebase
+        // const app = initializeApp(firebaseConfig);
+        // console.log(app);
+        // const analytics = getAnalytics(app);
+	  }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gTag = gtag;
+    function init_ga() {
+      console.log("****init_ga fun******");
+      gtag('config', 'G-0FZTEHPVWR', { 'debug_mode':true });
+      gtag('event', 'type');    
+    }
+    window.init_ga = init_ga;
+    send_ga_event = function(e)  {
+        console.log("send ga event");
+        
+        gtag('js', new Date());
+        gtag('event', 'type');
+	  }
+    window.send_ga_event = send_ga_event;
+
+  </script>
+  <script>
+    
+  window.init_ga();
+
+  messageHandler = function (e) {
+            var messageEle = document.getElementById('message');
+            messageEle.innerHTML = e.data;
+            window.send_ga_event();
+  };
+
+  // window.init_ga;
+        // window.addEventListener('message', function(event) {
+      // window.onmessage = function(e) {
+      //     send_ga_event(e)
+      //     cosole.log("***onmessage****",send_ga_event(e));
+      // };
+  // window.onmessage = send_ga_event;
+    
+
+  window.onmessage = messageHandler;
+
+  </script>
+</head>
+
+<body>
+    Receiving iframe.  
+
+   
+  
+
+<div id="message">
+</body>
+</html>
