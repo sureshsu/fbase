@@ -60,7 +60,7 @@
             console.log("send ga event");
             
             gtag('js', new Date());
-            gtag('event', 'type');
+            gtag('event', 'type', e.data);
         }
         window.send_ga_event = send_ga_event;
     
