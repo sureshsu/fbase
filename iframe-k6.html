@@ -46,6 +46,7 @@
             console.log(app);
             const analytics = getAnalytics(app);
             console.log(analytics);
+            window.analytics = analytics;
         }
 
         window.dataLayer = window.dataLayer || [];
@@ -70,7 +71,7 @@
     var send_ga_event = function(e) {
         console.log("send ga event");
         
-        logEvent(analytics, e.data);
+        logEvent(window.analytics, e.data);
     }
     window.send_ga_event = send_ga_event;
       var messageHandler = function (e) {
