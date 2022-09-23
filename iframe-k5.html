@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <!-- <script src="https://www.googletagmanager.com/gtag/js?id=G-ZXKPNLFRRE"></script> -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FZTEHPVWR"></script>
+  <script type="text/javascript" src="main.f183c55b557dd20e9de3.js"></script></body>
+
 </head>
 
 <body>
@@ -46,14 +48,14 @@
         }
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        window.gTag = gtag;
-        function init_ga() {
+
+        var init_ga = function() {
           console.log("****init_ga fun******");
           gtag('config', 'G-0FZTEHPVWR', { 'debug_mode':true });
-          gtag('event', 'type');    
         }
-        window.init_ga = init_ga;
     
+        window.init_ga = init_ga;
+
         var send_ga_event = function(e)  {
             console.log("send ga event");
             
@@ -65,7 +67,8 @@
       var messageHandler = function (e) {
                 var messageEle = document.getElementById('message');
                 messageEle.innerHTML = e.data;
-    
+                console.log("message handler");
+                window.init_ga();
                 window.send_ga_event(e.data);
       };
     
