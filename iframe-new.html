@@ -5,6 +5,7 @@
   </head>
   <body>
     <!-- <h1>Webpack Training 1</h1> -->
+
     <script type="module">
 
       // Import the functions you need from the SDKs you need
@@ -56,5 +57,49 @@
         gtag('event', 'type')
       </script> -->
       <!-- <script src="./index.js"></script> -->
-  <script type="text/javascript" src="main.js"></script></body>
+      <script type="text/javascript" src="main.js"></script>
+      <script type="module">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      var init_ga = function() {
+        console.log("****init_ga fun******");
+        gtag('config', 'G-0FZTEHPVWR', { 'debug_mode':true });
+      }
+  
+      // window.init_ga = init_ga;
+
+      var send_ga_event = function(e)  {
+          console.log("send ga event");
+          
+          gtag('js', new Date());
+          gtag('event', 'type', e.data);
+      }
+      window.send_ga_event = send_ga_event;
+  
+    var messageHandler = function (e) {
+              var messageEle = document.getElementById('message');
+              messageEle.innerHTML = e.data;
+              console.log("message handler");
+              // window.init_ga();
+              window.send_ga_event(e.data);
+    };
+  
+    init_ga();
+    // window.addEventListener('message', function(event) {
+        // window.onmessage = function(e) {
+        //     send_ga_event(e)
+        //     cosole.log("***onmessage****",send_ga_event(e));
+        // };
+    // window.onmessage = send_ga_event;
+      
+  
+    window.onmessage = messageHandler;
+  
+    </script>
+  Receiving iframe.  
+
+<div id="message">
+
+</body>
 </html>
