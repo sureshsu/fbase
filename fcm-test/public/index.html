@@ -80,31 +80,6 @@
 // isSupported();
 
 
-function SubscribeUsers() {
-  Notification.requestPermission().then(Permission => {
-      console.log(Permission);
-      if(Permission == "granted"){
-          messaging.getToken(
-              {vapidkey:"BAvMwMWlkmz0HTGdk_jOXp3NsPG6yRUt2a6XyGp-Ad5hxpaf-eosqVRKCSY6AYXbraLN5tprnHlLfnBVwj1USLY"}).then(currentToken=>{
-              console.log("currentToken:",currentToken);
-          })
-      }
-
-  });
-}
-
-SubscribeUsers();
-
-// console.log("*****SubscribeUsers*******",SubscribeUsers());
-
-
-  
-    </script>
- 
-    <script>
-
-//  const messaging = firebase.messaging();
-// console.log("****messaging*****",messaging);
 // function SubscribeUsers() {
 //   Notification.requestPermission().then(Permission => {
 //       console.log(Permission);
@@ -117,6 +92,31 @@ SubscribeUsers();
 
 //   });
 // }
+
+// SubscribeUsers();
+
+// console.log("*****SubscribeUsers*******",SubscribeUsers());
+
+
+  
+    </script>
+ 
+    <script>
+
+ const messaging = firebase.messaging();
+console.log("****messaging*****",messaging);
+function SubscribeUsers() {
+  Notification.requestPermission().then(Permission => {
+      console.log(Permission);
+      if(Permission == "granted"){
+          messaging.getToken(
+              {vapidkey:"BAvMwMWlkmz0HTGdk_jOXp3NsPG6yRUt2a6XyGp-Ad5hxpaf-eosqVRKCSY6AYXbraLN5tprnHlLfnBVwj1USLY"}).then(currentToken=>{
+              console.log("currentToken:",currentToken);
+          })
+      }
+
+  });
+}
 
 // SubscribeUsers();
 
