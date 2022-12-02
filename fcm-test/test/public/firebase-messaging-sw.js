@@ -7,7 +7,7 @@ importScripts('https://www.gstatic.com/firebasejs/9.9.0/firebase-messaging-compa
 
 
  if ('serviceWorker' in navigator) {
-     navigator.serviceWorker.register('./firebase-messaging-sw.js', {scope: '/fbase/fcm-test/test/public/'})
+     navigator.serviceWorker.register('/firebase-messaging-sw.js', {scope: '/fbase/fcm-test/test/public/'})
        .then(function(registration) {
          console.log('Registration successful, scope is:', registration.scope);
        }).catch(function(err) {
