@@ -30,6 +30,8 @@
     
         function resetUI() {
             const vapidKey = 'BAvMwMWlkmz0HTGdk_jOXp3NsPG6yRUt2a6XyGp-Ad5hxpaf-eosqVRKCSY6AYXbraLN5tprnHlLfnBVwj1USLY'; //from firebase project settings
+            messaging.usePublicVapidKey("BAvMwMWlkmz0HTGdk_jOXp3NsPG6yRUt2a6XyGp-Ad5hxpaf-eosqVRKCSY6AYXbraLN5tprnHlLfnBVwj1USLY");
+            console.log("usepublicVapidKey");
             messaging.getToken({ vapidKey: vapidKey }).then((currentToken) => {
                 console.log("currentToken", currentToken);
                 if (currentToken) {
