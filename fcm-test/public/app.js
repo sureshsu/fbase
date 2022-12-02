@@ -19,14 +19,14 @@ const firebaseConfig = {
 // }
 // init_fb_analytics();
 
-const messaging = firebase.messaging();
-
 // isSupported();
 
 
 function SubscribeUsers() {
 Notification.requestPermission().then(Permission => {
 console.log(Permission);
+const messaging = firebase.messaging();
+
 if(Permission == "granted"){
   // messaging.getToken(
   //     {vapidkey:"BAvMwMWlkmz0HTGdk_jOXp3NsPG6yRUt2a6XyGp-Ad5hxpaf-eosqVRKCSY6AYXbraLN5tprnHlLfnBVwj1USLY"}).then(currentToken=>{
