@@ -1,0 +1,62 @@
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-messaging.js"></script>
+<script type="text/javascript">
+    try {
+        if (!firebase.apps.length) {
+            const firebaseConfig = { //from firebase project setting
+              apiKey: "AIzaSyDLOosAg3k-xQd0bXiMqulMyMd6GsWbMaE",
+              authDomain: "ocb-tizen-d78a1.firebaseapp.com",
+              projectId: "ocb-tizen-d78a1",
+              storageBucket: "ocb-tizen-d78a1.appspot.com",
+              messagingSenderId: "277255948303",
+              appId: "1:277255948303:web:afa51467c6ff4dacd3fb7a",
+              measurementId: "G-ZXKPNLFRRE"
+            };
+            firebase.initializeApp(firebaseConfig);
+        }
+    
+        const messaging = firebase.messaging();
+    
+        messaging.onMessage((payload) => {
+            console.log('Message received. ', payload);
+    
+            const notificationTitle = 'OnMessage Title';
+            const notificationOptions = {
+                body: 'OnMessage body.'
+            };
+    
+            return self.registration.showNotification(notificationTitle, notificationOptions);
+        });
+    
+        function resetUI() {
+            const vapidKey = 'BAvMwMWlkmz0HTGdk_jOXp3NsPG6yRUt2a6XyGp-Ad5hxpaf-eosqVRKCSY6AYXbraLN5tprnHlLfnBVwj1USLY'; //from firebase project settings
+            messaging.getToken({ vapidKey: vapidKey }).then((currentToken) => {
+                console.log("currentToken", currentToken);
+                if (currentToken) {
+                    //..
+                } else {
+                    console.log('No registration token available. Request permission to generate one.');
+                    requestPermission();
+                }
+            }).catch((err) => {
+                console.log('An error occurred while retrieving token. ', err);
+            });
+        }
+    
+        function requestPermission() {
+            console.log('Requesting permission...');
+            Notification.requestPermission().then((permission) => {
+                if (permission === 'granted') {
+                    console.log('Notification permission granted.');
+                    resetUI();
+                } else {
+                    console.log('Unable to get permission to notify.');
+                }
+            });
+        }
+    
+        resetUI();
+    } catch (e) {
+        console.log("firebase startup error ", e);
+    }
+</script>
