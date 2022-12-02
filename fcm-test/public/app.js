@@ -25,7 +25,6 @@ const firebaseConfig = {
 function SubscribeUsers() {
 Notification.requestPermission().then(Permission => {
 console.log(Permission);
-const messaging = firebase.messaging();
 
 if(Permission == "granted"){
   // messaging.getToken(
