@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script> -->
+
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+   -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-messaging.js"></script> -->
+
+  <script src="firebase-app.js"></script>
+  <script src="firebase-messaging.js"></script>
+  <!-- <script src="firebase-messaging-sw.js"></script> -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+  
+    // import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
+    import { getMessaging, getToken } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-messaging.js';
+    
+    
+
+ if ('serviceWorker' in navigator) {
+   console.log("***serviceWorker****");
+     navigator.serviceWorker.register('firebase-messaging-sw.js')
+       .then(function(registration) {
+        console.log("***serviceWorker**inside**");
+         console.log('Registration successful, scope is:', registration.scope);
+       }).catch(function(err) {
+        console.log('Service worker registration failed, error:', err);
+       });
+    }
+
+    // self.addEventListener('push', function (event) {
+    //   console.log('Service Worker recived a push message', event.data.text());
+    //   var notification = event.data.json().notification;
+    //   var title = notification.title;
+    //   event.waitUntil(
+    //       self.registration.showNotification(title, {
+    //           body: notification.body,
+    //           icon: notification.icon,
+    //           data: { url: notification.click_action }
+    //       }));
+    // });
+ 
+
+    
+  
+    //  function init_fb_analytics() {
+       
+          const firebaseConfig = {
+          
+            apiKey: "AIzaSyDLOosAg3k-xQd0bXiMqulMyMd6GsWbMaE",
+            authDomain: "ocb-tizen-d78a1.firebaseapp.com",
+            projectId: "ocb-tizen-d78a1",
+            storageBucket: "ocb-tizen-d78a1.appspot.com",
+            messagingSenderId: "277255948303",
+            appId: "1:277255948303:web:afa51467c6ff4dacd3fb7a",
+            measurementId: "G-ZXKPNLFRRE"
+          
+          };
+              
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+          console.log("*****app*****",app);
+          
+          
+      console.log("*******firebase******",firebase);
+
+        // const messaging = firebase.messaging();
+
+      
+
+      // console.log("****messaging******",messaging)
+
+// isSupported();
+
+
+// function SubscribeUsers() {
+//   Notification.requestPermission().then(Permission => {
+//       console.log(Permission);
+//       if(Permission == "granted"){
+//           messaging.getToken(
+//               {vapidkey:"BAvMwMWlkmz0HTGdk_jOXp3NsPG6yRUt2a6XyGp-Ad5hxpaf-eosqVRKCSY6AYXbraLN5tprnHlLfnBVwj1USLY"}).then(currentToken=>{
+//               console.log("currentToken:",currentToken);
+//           })
+//       }
+
+//   });
+// }
+
+// // SubscribeUsers();
+
+// console.log("*****SubscribeUsers*******",SubscribeUsers());
+
+
+  
+    </script>
+ 
+    <script>
+
+//  const messaging = firebase.messaging();
+// console.log("****messaging*****",messaging);
+// function SubscribeUsers() {
+//   Notification.requestPermission().then(Permission => {
+//       console.log(Permission);
+//       if(Permission == "granted"){
+//           messaging.getToken(
+//               {vapidkey:"BAvMwMWlkmz0HTGdk_jOXp3NsPG6yRUt2a6XyGp-Ad5hxpaf-eosqVRKCSY6AYXbraLN5tprnHlLfnBVwj1USLY"}).then(currentToken=>{
+//               console.log("currentToken:",currentToken);
+//           })
+//       }
+
+//   });
+// }
+
+// SubscribeUsers();
+
+      </script>
+
+    <!-- <script src="firebase-messaging-sw.js"></script> -->
+
+     <!-- <script src="app.js"></script> -->
+</head>
+
+<body>
+ 
+    Receiving iframe.  
+    <h1>FCM - Push Notification</h1>
+   
+<div id="message">
+  <button onClick="SubscribeUsers()">subscribe</button>
+</body>
+</html>
