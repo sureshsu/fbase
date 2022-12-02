@@ -1,4 +1,3 @@
-
 const firebaseConfig = {
           
     apiKey: "AIzaSyDLOosAg3k-xQd0bXiMqulMyMd6GsWbMaE",
@@ -12,7 +11,7 @@ const firebaseConfig = {
   };
       
   // Initialize Firebase
-  // firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 //   console.log(app);
   // const analytics = getAnalytics(app);
   // console.log(analytics);
@@ -20,12 +19,14 @@ const firebaseConfig = {
 // }
 // init_fb_analytics();
 
+const messaging = firebase.messaging();
+
 // isSupported();
+
 
 function SubscribeUsers() {
 Notification.requestPermission().then(Permission => {
 console.log(Permission);
-
 if(Permission == "granted"){
   // messaging.getToken(
   //     {vapidkey:"BAvMwMWlkmz0HTGdk_jOXp3NsPG6yRUt2a6XyGp-Ad5hxpaf-eosqVRKCSY6AYXbraLN5tprnHlLfnBVwj1USLY"}).then(currentToken=>{
