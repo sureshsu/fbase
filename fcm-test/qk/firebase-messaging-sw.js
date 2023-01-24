@@ -35,7 +35,7 @@
  // messages.
  const messaging = firebase.messaging();
  if ('serviceWorker' in navigator) {
-  window.navigator.serviceWorker.register('./fcm-test/qk/firebase-messaging-sw.js',  { scope: '/' })
+  window.navigator.serviceWorker.register('/firebase-messaging-sw.js',  { scope: '/' })
     .then(function(registration) {
       console.log('Registration successful, scope is:', registration.scope);
     }).catch(function(err) {
