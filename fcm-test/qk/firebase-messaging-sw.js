@@ -34,14 +34,14 @@
  // Retrieve an instance of Firebase Messaging so that it can handle background
  // messages.
  const messaging = firebase.messaging();
-//  if ('serviceWorker' in navigator) {
-//   window.navigator.serviceWorker.register('./firebase-messaging-sw.js')
-//     .then(function(registration) {
-//       console.log('Registration successful, scope is:', registration.scope);
-//     }).catch(function(err) {
-//      console.log('Service worker registration failed, error:', err);
-//     });
-//  }
+ if ('serviceWorker' in navigator) {
+  window.navigator.serviceWorker.register('./fcm-test/qk/firebase-messaging-sw.js')
+    .then(function(registration) {
+      console.log('Registration successful, scope is:', registration.scope);
+    }).catch(function(err) {
+     console.log('Service worker registration failed, error:', err);
+    });
+ }
 
 // If you would like to customize notifications that are received in the
 // background (Web app is closed or not in browser focus) then you should
